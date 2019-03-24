@@ -1,0 +1,13 @@
+<div class="ng2carousel-container">
+  <ng2carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio" [slidesN]="4"
+    [loop]="true" scrollDirection="left" [slidesMargin]="100">
+    <ng-container *ngFor="let item of ng2carouselItems;">
+      <ng-container *ng2carouselItem>
+        <div class="ng2carousel-element">
+          <!-- PLACE HERE YOUR SLIDE CONTENT -->
+          {{item.title}}
+        </div>
+      </ng-container>
+    </ng-container>
+  </ng2carousel>
+</div>
