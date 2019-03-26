@@ -63,7 +63,7 @@ import { AppComponent } from './app.component';
 export class AppModule { }
  ```
 
- 2) Use the directive `(NgxMatTypeahead)` in your component.
+ 2) Use the selector `(ng2carousel)` in your component.
 
 ```typescript
 import { Component } from '@angular/core';
