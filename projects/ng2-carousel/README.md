@@ -1,15 +1,15 @@
 # Ng2Carousel
 
-* Carousel `component` for Angular 2+. Easily customizable, with autoscroll, loop and navigation controls.
-* List of features
-* - Easily customizable.
-* - Autoscroll.
-* - Continuous loop.
-* - Navigation indicators and controls.
-* - Customizable number of visible slides.
-* - Customizable direction of scroll.
-* - Customizable speed of scroll.
-* - Slides margins.
+Carousel `component` for Angular 2+. Easily customizable, with autoscroll, loop and navigation controls.
+List of features
+* Easily customizable.
+* Autoscroll.
+* Continuous loop.
+* Navigation indicators and controls.
+* Customizable number of visible slides.
+* Customizable direction of scroll.
+* Customizable speed of scroll.
+* Slides margins.
 
 ## Examples/Demo
 
@@ -21,7 +21,7 @@
 
 ## API
 
-`import { Ng2CarouselModule } from 'ng2carousel'`<br>
+`import { Ng2CarouselModule } from 'ng2-custom-carousel'`<br>
 `selector: ng2carousel`
 
 ### @Inputs()
@@ -40,12 +40,12 @@
 ## Usage
 
 1) Register the `Ng2Carousel` in your app module.
- > `import { Ng2CarouselModule} from 'ng2-carousel'`
+ > `import { Ng2CarouselModule} from 'ng2-custom-carousel'`
 
  ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Ng2CarouselModule} from 'ng2-carousel';
+import { Ng2CarouselModule} from 'ng2-custom-carousel';
 
 import { AppComponent } from './app.component';
 
@@ -70,7 +70,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: `
+  template: `
   <div class="ng2carousel-container">
     <ng2carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio" [slidesN]="4" [loop]="true" scrollDirection="left" [slidesMargin]="100">
       <ng-container *ngFor="let item of ng2carouselItems;">
