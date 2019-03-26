@@ -17,7 +17,7 @@
 
 ## Installation
 
-`npm i ng2carousel`
+`npm i ng2-custom-carousel`
 
 ## API
 
