@@ -3,17 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng2carousel": {
+    "Ng2CarouselLibrary": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
       "prefix": "app",
       "schematics": {},
-      "targets": {
+      "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ng2carousel",
+            "outputPath": "dist/Ng2CarouselLibrary",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,7 +25,8 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [],
+            "es5BrowserSupport": true
           },
           "configurations": {
             "production": {
@@ -43,26 +44,32 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
             }
           }
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ng2carousel:build",
-            "port": 5001
+            "browserTarget": "Ng2CarouselLibrary:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ng2carousel:build:production"
+              "browserTarget": "Ng2CarouselLibrary:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ng2carousel:build"
+            "browserTarget": "Ng2CarouselLibrary:build"
           }
         },
         "test": {
@@ -96,19 +103,20 @@
         }
       }
     },
-    "ng2carousel-e2e": {
+    "Ng2CarouselLibrary-e2e": {
       "root": "e2e/",
       "projectType": "application",
-      "targets": {
+      "prefix": "",
+      "architect": {
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ng2carousel:serve"
+            "devServerTarget": "Ng2CarouselLibrary:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ng2carousel:serve:production"
+              "devServerTarget": "Ng2CarouselLibrary:serve:production"
             }
           }
         },
@@ -122,7 +130,42 @@
           }
         }
       }
+    },
+    "Ng2Carousel": {
+      "root": "projects/ng2-carousel",
+      "sourceRoot": "projects/ng2-carousel/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/ng2-carousel/tsconfig.lib.json",
+            "project": "projects/ng2-carousel/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng2-carousel/src/test.ts",
+            "tsConfig": "projects/ng2-carousel/tsconfig.spec.json",
+            "karmaConfig": "projects/ng2-carousel/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng2-carousel/tsconfig.lib.json",
+              "projects/ng2-carousel/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
-  "defaultProject": "ng2carousel"
+  "defaultProject": "Ng2CarouselLibrary"
 }

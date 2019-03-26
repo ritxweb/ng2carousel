@@ -1,11 +1,11 @@
-import { AfterViewInit, Component, ContentChildren, Directive, ElementRef, Input, QueryList, TemplateRef, ViewChild, ViewChildren, AfterContentInit, HostListener, OnDestroy } from '@angular/core';
-import { Ng2carouselItemDirective } from './ng2carousel-item.directive';
+import { AfterViewInit, Component, ContentChildren, Directive, ElementRef, Input, QueryList, ViewChild, ViewChildren, AfterContentInit, HostListener, OnDestroy } from '@angular/core';
+import { Ng2CarouselItemDirective } from './ng2-carousel-item.directive';
 import { animate, AnimationBuilder, AnimationFactory, AnimationPlayer, style } from '@angular/animations';
 
 @Directive({
   selector: '.ng2carousel-item'
 })
-export class Ng2carouselItemElement {
+export class Ng2CarouselItemElement {
 }
 
 @Component({
@@ -60,7 +60,7 @@ export class Ng2carouselItemElement {
 
   `]
 })
-export class Ng2carouselComponent implements AfterViewInit, AfterContentInit, OnDestroy {
+export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, OnDestroy {
 
   constructor(private builder: AnimationBuilder) {
   }
@@ -72,8 +72,8 @@ export class Ng2carouselComponent implements AfterViewInit, AfterContentInit, On
   set currentSlideString(index: string) {
     this.goToSlide(+index + (this.loop ? 2 : 0));
   }
-  @ContentChildren(Ng2carouselItemDirective) items: QueryList<Ng2carouselItemDirective>;
-  @ViewChildren(Ng2carouselItemElement, { read: ElementRef }) private itemsElements: QueryList<ElementRef>;
+  @ContentChildren(Ng2CarouselItemDirective) items: QueryList<Ng2CarouselItemDirective>;
+  @ViewChildren(Ng2CarouselItemElement, { read: ElementRef }) private itemsElements: QueryList<ElementRef>;
   @ViewChild('ng2carousel') private ng2carousel: ElementRef;
   @Input() timing = '250ms ease-in';
   @Input() showControls = true;
@@ -94,7 +94,7 @@ export class Ng2carouselComponent implements AfterViewInit, AfterContentInit, On
   public navigationIndexes: number[] = [];
   private intervalTransition;
   private scrollLimit = 0;
-  @HostListener('window:resize', ['event'])
+  @HostListener('window:resize', ['$event'])
   onResize(event?) {
     let carouselWidth = 0;
 

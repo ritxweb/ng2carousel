@@ -1,59 +1,27 @@
-<h1 align="center"> Angular 2+ Carousel </h1>
+# Ng2CarouselLibrary
 
-<hr/>
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.6.
 
-<p> Carousel Component for Angular 2+. Easily customizable, with autoscroll, loop and navigation controls.</p>
+## Development server
 
-<h3> List of features </h3>
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-<ul>
-  <li>Easily customizable</li>
-  <li>Autoscroll</li>
-  <li>Continuous loop</li>
-  <li>Navigation indicators and controls</li>
-  <li>Customizable number of slides</li>
-  <li>Customizable direction of slides</li>
-  <li>Customizable speed</li>
-  <li>Slides margins</li>
-</ul>
+## Code scaffolding
 
-<h3> Demo </h3>
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-<a href="https://www.ritxweb.com/ng2carousel/"> Live Demo </a>
+## Build
 
-<h3> Code Demo </h3>
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-```html
+## Running unit tests
 
-<div class="ng2carousel-container">
-  <ng2carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio" [slidesN]="4"
-    [loop]="true" scrollDirection="left" [slidesMargin]="100">
-    <ng-container *ngFor="let item of ng2carouselItems;">
-      <ng-container *ng2carouselItem>
-        <div class="ng2carousel-element">
-            <!-- PLACE HERE YOUR SLIDE CONTENT -->
-          {{item.title}}
-        </div>
-      </ng-container>
-    </ng-container>
-  </ng2carousel>
-</div>
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-```
+## Running end-to-end tests
 
-<h3> Download & Installation </h3>
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-```shell
-$ npm i ng2carousel
-```
+## Further help
 
-<!--<h3>Contributing</h3>-->
-
-<h3>Author</h3>
-<ul>
-  <li>Ricardo Villagra</li>
-</ul>
-
-<h3>License</h3>
-
-This project is licensed under the MIT License
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
