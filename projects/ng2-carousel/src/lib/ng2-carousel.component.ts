@@ -46,7 +46,7 @@ export class Ng2CarouselItemElement {
 
     .ng2carousel-controls {
       margin: auto;
-      width: fit-content;
+      width: max-content;
     }
 
     .ng2carousel-navigation {
@@ -74,7 +74,7 @@ export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, On
   }
   @ContentChildren(Ng2CarouselItemDirective) items: QueryList<Ng2CarouselItemDirective>;
   @ViewChildren(Ng2CarouselItemElement, { read: ElementRef }) private itemsElements: QueryList<ElementRef>;
-  @ViewChild('ng2carousel') private ng2carousel: ElementRef;
+  @ViewChild('ng2carousel', { static: true }) private ng2carousel: ElementRef;
   @Input() timing = '250ms ease-in';
   @Input() showControls = true;
   @Input() showNavigation = 'radio'; // radio, numbers, none
