@@ -1,0 +1,22 @@
+<section class="ng2carousel-wrapper" [ngStyle]="ng2carouselWrapperStyle" (mouseenter)="stopScrool()"
+    (mouseleave)="startScroll()">
+    <ul class="ng2carousel-inner" #ng2carousel>
+        <li *ngFor="let item of items;" class="ng2carousel-item" [ngStyle]="{'marginRight': slidesMargin + 'px'}">
+            <ng-container [ngTemplateOutlet]="item !== undefined?item.tpl:items.last.tpl"></ng-container>
+        </li>
+    </ul>
+</section>
+<div [ngStyle]="ng2carouselControlsStyle">
+    <div class="ng2carousel-controls">
+        <button *ngIf="showControls" (click)="goToSlide(currentSlide - 1)">Prev</button>
+        <div *ngIf="showNavigation === 'numbers'" class="ng2carousel-navigation">
+            <button *ngFor="let item of navigationIndexes, let i = index" (click)="goToSlide(i + (loop? 2 : 0))"
+                [class.ng2carouselSlideSelected]="i === currentSlideShown">{{i + 1}}</button>
+        </div>
+        <form #searchPackDiscountForm="ngForm" *ngIf="showNavigation === 'radio'" class="ng2carousel-navigation">
+            <input *ngFor="let item of navigationIndexes, let i = index" type="radio" name="currentSlideShown"
+                [(ngModel)]="currentSlideString" value="{{i}}">
+        </form>
+        <button *ngIf="showControls" (click)="goToSlide(currentSlide + 1)">Next</button>
+    </div>
+</div>

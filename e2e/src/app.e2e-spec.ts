@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to Ng2CarouselLibrary!');
+    expect(page.getTitleText()).toEqual('Welcome to ng2carousel!');
   });
 
   afterEach(async () => {

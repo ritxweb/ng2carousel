@@ -25,6 +25,9 @@
       ],
       "ng2-carousel/*": [
         "dist/ng2-carousel/*"
+      ],
+      "@angular/*": [
+        "./node_modules/@angular/*"
       ]
     }
   }

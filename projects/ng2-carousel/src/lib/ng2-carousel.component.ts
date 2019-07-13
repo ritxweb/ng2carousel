@@ -1,4 +1,17 @@
-import { AfterViewInit, Component, ContentChildren, Directive, ElementRef, Input, QueryList, ViewChild, ViewChildren, AfterContentInit, HostListener, OnDestroy } from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ContentChildren,
+  Directive,
+  ElementRef,
+  Input,
+  QueryList,
+  ViewChild,
+  ViewChildren,
+  AfterContentInit,
+  HostListener,
+  OnDestroy
+} from '@angular/core';
 import { Ng2CarouselItemDirective } from './ng2-carousel-item.directive';
 import { animate, AnimationBuilder, AnimationFactory, AnimationPlayer, style } from '@angular/animations';
 
@@ -10,55 +23,8 @@ export class Ng2CarouselItemElement {
 
 @Component({
   selector: 'ng2carousel',
-  template: `
-    <section class="ng2carousel-wrapper" [ngStyle]="ng2carouselWrapperStyle" (mouseenter)="stopScrool()" (mouseleave)="startScroll()">
-      <ul class="ng2carousel-inner" #ng2carousel>
-        <li *ngFor="let item of items;" class="ng2carousel-item" [ngStyle]="{'marginRight': slidesMargin + 'px'}">
-          <ng-container [ngTemplateOutlet]="item.tpl"></ng-container>
-        </li>
-      </ul>
-    </section>
-    <div [ngStyle]="ng2carouselControlsStyle">
-      <div class="ng2carousel-controls">
-        <button *ngIf="showControls" (click)="goToSlide(currentSlide - 1)">Prev</button>
-        <div *ngIf="showNavigation === 'numbers'" class="ng2carousel-navigation">
-          <button *ngFor="let item of navigationIndexes, let i = index" (click)="goToSlide(i + (loop? 2 : 0))" [class.ng2carouselSlideSelected]="i === currentSlideShown">{{i + 1}}</button>
-        </div>
-        <form #searchPackDiscountForm="ngForm" *ngIf="showNavigation === 'radio'" class="ng2carousel-navigation">
-          <input *ngFor="let item of navigationIndexes, let i = index" type="radio" name="currentSlideShown" [(ngModel)]="currentSlideString" value="{{i}}">
-        </form>
-        <button *ngIf="showControls" (click)="goToSlide(currentSlide + 1)">Next</button>
-      </div>
-    </div>
-  `,
-  styles: [`
-    .ng2carousel-wrapper {
-      overflow: hidden;
-    }
-
-    .ng2carousel-inner {
-      position: relative;
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-
-    .ng2carousel-controls {
-      margin: auto;
-      width: max-content;
-    }
-
-    .ng2carousel-navigation {
-      display: inline;
-      margin: 0px 20px;
-    }
-
-    .ng2carouselSlideSelected {
-      background-color: grey;
-    }
-
-  `]
+  templateUrl: './ng2-carousel.component.html',
+  styleUrls: ['./ng2-carousel.component.sass']
 })
 export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, OnDestroy {
 
@@ -98,7 +64,8 @@ export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, On
   onResize(event?) {
     let carouselWidth = 0;
 
-    while ((window.innerWidth >= ((carouselWidth + this.itemWidth) - this.slidesMargin)) && (((carouselWidth + this.itemWidth) - this.slidesMargin) <= ((this.itemWidth * this.slidesN) - this.slidesMargin))) {
+    while ((window.innerWidth >= ((carouselWidth + this.itemWidth) - this.slidesMargin)) &&
+      (((carouselWidth + this.itemWidth) - this.slidesMargin) <= ((this.itemWidth * this.slidesN) - this.slidesMargin))) {
       carouselWidth = carouselWidth + this.itemWidth;
     }
 
@@ -233,34 +200,42 @@ export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, On
       this.slidesN = this.items.length;
     }
 
+    if (this.items.length < 2) {
+      this.autoScroll = 0;
+      this.showControls = false;
+      this.showNavigation = 'none';
+    }
     this.startScroll();
   }
 
   ngAfterViewInit() {
 
-    this.scrollLimit = this.items.length;
-    if (!this.loop) { this.scrollLimit = (this.items.length - this.slidesN) + 1; }
+    if (this.items.length > 0) {
 
-    for (let i = 0; i < this.scrollLimit; i++) { this.navigationIndexes.push(i); }
+      this.scrollLimit = this.items.length;
+      if (!this.loop) { this.scrollLimit = (this.items.length - this.slidesN) + 1; }
 
-    this.itemWidth = this.itemsElements.first.nativeElement.getBoundingClientRect().width + (this.slidesMargin ? this.slidesMargin : 0);
+      for (let i = 0; i < this.scrollLimit; i++) { this.navigationIndexes.push(i); }
 
-    this.onResize();
+      this.itemWidth = this.itemsElements.first.nativeElement.getBoundingClientRect().width + (this.slidesMargin ? this.slidesMargin : 0);
 
-    if (this.loop) {
-      const lastSlice = this.items.length - 1;
-      const addedSlices = [];
-      for (let i = 0; i < (this.slidesN - 1); i++) {
-        addedSlices.push(this.items.toArray()[i]);
+      this.onResize();
+
+      if (this.loop) {
+        const lastSlice = this.items.length - 1;
+        const addedSlices = [];
+        for (let i = 0; i < (this.slidesN - 1); i++) {
+          addedSlices.push(this.items.toArray()[i]);
+        }
+        this.items.reset([this.items.toArray()[lastSlice - 1], this.items.toArray()[lastSlice], this.items.toArray(), addedSlices]);
+
+        this.currentSlide = 2;
+        this.ng2carousel.nativeElement.style.left = '-' + (2 * this.itemWidth) + 'px';
       }
-      this.items.reset([this.items.toArray()[lastSlice - 1], this.items.toArray()[lastSlice], this.items.toArray(), addedSlices]);
 
-      this.currentSlide = 2;
-      this.ng2carousel.nativeElement.style.left = '-' + (2 * this.itemWidth) + 'px';
+      this.ng2carousel.nativeElement.style.width = ((this.itemWidth * this.items.length) - this.slidesMargin) + `px`;
+
     }
-
-    this.ng2carousel.nativeElement.style.width = ((this.itemWidth * this.items.length) - this.slidesMargin) + `px`;
-
   }
 
   ngOnDestroy() {

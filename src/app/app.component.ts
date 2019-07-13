@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
   ng2carouselItems = [
@@ -19,5 +19,4 @@ export class AppComponent {
     { title: 'Slide 10' },
     { title: 'Slide 11' }
   ];
-
 }
