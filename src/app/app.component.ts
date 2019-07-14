@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
-  ng2CusomCarouselItems = [
+  ng2CustomCarouselItems = [
     { title: 'Slide 1' },
     { title: 'Slide 2' },
     { title: 'Slide 3' },

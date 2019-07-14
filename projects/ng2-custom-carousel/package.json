@@ -1,6 +1,6 @@
 {
   "name": "ng2-custom-carousel",
-  "version": "0.0.16",
+  "version": "0.0.17",
   "description": "Carousel Component for Angular 2+. Easily customizable, with autoscroll, loop and navigation controls",
   "author": {
     "name": "Ricardo Villagra",
