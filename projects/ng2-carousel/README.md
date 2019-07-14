@@ -21,7 +21,7 @@ List of features
 
 ## API
 
-`import { Ng2CarouselModule } from 'ng2-custom-carousel'`<br>
+`import { Ng2CarouselModule } from 'ng2-carousel';`<br>
 `selector: ng2carousel`
 
 ### @Inputs()
@@ -40,12 +40,12 @@ List of features
 ## Usage
 
 1) Register the `Ng2Carousel` in your app module.
- > `import { Ng2CarouselModule} from 'ng2-custom-carousel'`
+ > `import { Ng2CarouselModule } from 'ng2-carousel';'`
 
  ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Ng2CarouselModule} from 'ng2-custom-carousel';
+import { Ng2CarouselModule } from 'ng2-carousel';
 
 import { AppComponent } from './app.component';
 
