@@ -20,11 +20,11 @@
       "dom"
     ],
     "paths": {
-      "ng2-carousel": [
-        "dist/ng2-carousel"
+      "ng2-custom-carousel": [
+        "dist/ng2-custom-carousel"
       ],
-      "ng2-carousel/*": [
-        "dist/ng2-carousel/*"
+      "ng2-custom-carousel/*": [
+        "dist/ng2-custom-carousel/*"
       ],
       "@angular/*": [
         "./node_modules/@angular/*"

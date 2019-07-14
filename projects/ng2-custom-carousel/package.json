@@ -1,0 +1,30 @@
+{
+  "name": "ng2-custom-carousel",
+  "version": "0.0.16",
+  "description": "Carousel Component for Angular 2+. Easily customizable, with autoscroll, loop and navigation controls",
+  "author": {
+    "name": "Ricardo Villagra",
+    "email": "contact@ritxweb.com",
+    "url": "https://www.ritxweb.com/"
+  },
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ritxweb/ng2carousel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ritxweb/ng2carousel/issues",
+    "email": "contact@ritxweb.com"
+  },
+  "homepage": "https://github.com/ritxweb/ng2carousel",
+  "keywords": [
+    "angular",
+    "carousel",
+    "typescript",
+    "javascript"
+  ],
+  "peerDependencies": {
+    "@angular/common": "^8.1.1",
+    "@angular/core": "^8.1.1"
+  }
+}

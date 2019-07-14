@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { Ng2CarouselModule } from 'ng2-carousel';
+import { Ng2CustomCarouselModule } from 'ng2-custom-carousel';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { Ng2CarouselModule } from 'ng2-carousel';
   ],
   imports: [
     BrowserModule,
-    Ng2CarouselModule
+    Ng2CustomCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

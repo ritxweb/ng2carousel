@@ -1,15 +1,15 @@
-<div class="ng2carousel-container">
-  <ng2carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio" [slidesN]="4"
-    [loop]="true" scrollDirection="left" [slidesMargin]="100">
-    <ng-container *ngFor="let item of ng2carouselItems;">
-      <ng-container *ng2carouselItem>
-        <div class="ng2carousel-element">
+<div class="ng2-custom-carousel-container">
+  <ng2-custom-carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio"
+    [slidesN]="4" [loop]="true" scrollDirection="left" [slidesMargin]="100">
+    <ng-container *ngFor="let item of ng2CusomCarouselItems;">
+      <ng-container *ng2CustomCarouselItem>
+        <div class="ng2-custom-carousel-element">
           <!-- PLACE HERE YOUR SLIDE CONTENT -->
           {{item.title}}
         </div>
       </ng-container>
     </ng-container>
-  </ng2carousel>
+  </ng2-custom-carousel>
 </div>
 
 <div style="display: flex">
@@ -17,18 +17,18 @@
     <span>responsive</span>
   </div>
   <div style="width: 50%">
-    <div class="ng2carousel-container">
-      <ng2carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio" [slidesN]="4"
-        [loop]="true" scrollDirection="left" [slidesMargin]="100">
-        <ng-container *ngFor="let item of ng2carouselItems;">
-          <ng-container *ng2carouselItem>
-            <div class="ng2carousel-element">
+    <div class="ng2-custom-carousel-container">
+      <ng2-custom-carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio"
+        [slidesN]="4" [loop]="true" scrollDirection="left" [slidesMargin]="100">
+        <ng-container *ngFor="let item of ng2CusomCarouselItems;">
+          <ng-container *ng2CustomCarouselItem>
+            <div class="ng2-custom-carousel-element">
               <!-- PLACE HERE YOUR SLIDE CONTENT -->
               {{item.title}}
             </div>
           </ng-container>
         </ng-container>
-      </ng2carousel>
+      </ng2-custom-carousel>
     </div>
   </div>
 </div>

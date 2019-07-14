@@ -1,4 +1,4 @@
-# Ng2Carousel
+# Ng2CustomCarousel
 
 Carousel `component` for Angular 2+. Easily customizable, with autoscroll, loop and navigation controls.
 List of features
@@ -21,8 +21,8 @@ List of features
 
 ## API
 
-`import { Ng2CarouselModule } from 'ng2-carousel';`<br>
-`selector: ng2carousel`
+`import { Ng2CustomCarouselModule } from 'ng2-custom-carousel';`<br>
+`selector: ng2-custom-carousel`
 
 ### @Inputs()
 
@@ -39,15 +39,15 @@ List of features
 
 ## Usage
 
-1) Register the `Ng2Carousel` in your app module.
- > `import { Ng2CarouselModule } from 'ng2-carousel';'`
+1) Register the `Ng2CustomCarouselModule` in your app module.
+ > `import { Ng2CustomCarouselModule } from 'ng2-custom-carousel';'`
 
  ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { Ng2CarouselModule } from 'ng2-carousel';
 
 import { AppComponent } from './app.component';
+import { Ng2CustomCarouselModule } from 'ng2-custom-carousel';
 
 @NgModule({
   declarations: [
@@ -55,12 +55,13 @@ import { AppComponent } from './app.component';
   ],
   imports: [
     BrowserModule,
-    Ng2CarouselModule
+    Ng2CustomCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
  ```
 
  2) Use the selector `(ng2carousel)` in your component.
@@ -71,21 +72,27 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-  <div class="ng2carousel-container">
-    <ng2carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio" [slidesN]="4" [loop]="true" scrollDirection="left" [slidesMargin]="100">
-      <ng-container *ngFor="let item of ng2carouselItems;">
-        <ng-container *ng2carouselItem>
-          <div class="ng2carousel-element">
-            <!-- PLACE HERE YOUR SLIDE CONTENT -->
-            {{item.title}}
-          </div>
+    <div class="ng2-custom-carousel-container">
+      <ng2-custom-carousel timing="400ms ease-in" [showControls]="true" [autoScroll]="2000" showNavigation="radio"
+        [slidesN]="4" [loop]="true" scrollDirection="left" [slidesMargin]="100">
+        <ng-container *ngFor="let item of ng2CusomCarouselItems;">
+          <ng-container *ng2CustomCarouselItem>
+            <div class="ng2-custom-carousel-element">
+              <!-- PLACE HERE YOUR SLIDE CONTENT -->
+              {{item.title}}
+            </div>
+          </ng-container>
         </ng-container>
-      </ng-container>
-    </ng2carousel>
-  </div>
+      </ng2-custom-carousel>
+    </div>
   `,
   styles:[`
-    .ng2carousel-element {
+    .ng2-custom-carousel-container {
+      width: 100%;
+      margin: auto;
+    }
+
+    .ng2-custom-carousel-element {
       padding: 0;
       width: 300px;
       height: 300px;
@@ -95,15 +102,10 @@ import { Component } from '@angular/core';
       line-height: 300px;
       text-align: center;
     }
-
-    .ng2carousel-container {
-      width: 100%;
-      margin: auto;
-    }
   `]
 })
 export class AppComponent {
-  ng2carouselItems = [
+  ng2CusomCarouselItems = [
     { title: 'Slide 1' },
     { title: 'Slide 2' },
     { title: 'Slide 3' },
@@ -122,16 +124,16 @@ export class AppComponent {
 ## Running the example in local env
 
 * `npm i`
-* `ng build ng2-carousel`
+* `ng build ng2-custom-carousel`
 * Run `ng serve` for a dev server and running the demo app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Build the Ng2Carousel module
+## Build the Ng2CustomCarousel module
 
-Run `ng build ng2-carousel` to build the module. The build artifacts will be stored in the `dist/ng2-carousel` directory.
+Run `ng build ng2-custom-carousel` to build the module. The build artifacts will be stored in the `dist/ng2-custom-carousel` directory.
 
 ## Running unit tests
 
-Run `ng test ng2-carousel` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test ng2-custom-carousel` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## License
 

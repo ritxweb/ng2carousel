@@ -135,33 +135,33 @@
         }
       }
     },
-    "ng2-carousel": {
+    "ng2-custom-carousel": {
       "projectType": "library",
-      "root": "projects/ng2-carousel",
-      "sourceRoot": "projects/ng2-carousel/src",
+      "root": "projects/ng2-custom-carousel",
+      "sourceRoot": "projects/ng2-custom-carousel/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ng2-carousel/tsconfig.lib.json",
-            "project": "projects/ng2-carousel/ng-package.json"
+            "tsConfig": "projects/ng2-custom-carousel/tsconfig.lib.json",
+            "project": "projects/ng2-custom-carousel/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng2-carousel/src/test.ts",
-            "tsConfig": "projects/ng2-carousel/tsconfig.spec.json",
-            "karmaConfig": "projects/ng2-carousel/karma.conf.js"
+            "main": "projects/ng2-custom-carousel/src/test.ts",
+            "tsConfig": "projects/ng2-custom-carousel/tsconfig.spec.json",
+            "karmaConfig": "projects/ng2-custom-carousel/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ng2-carousel/tsconfig.lib.json",
-              "projects/ng2-carousel/tsconfig.spec.json"
+              "projects/ng2-custom-carousel/tsconfig.lib.json",
+              "projects/ng2-custom-carousel/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
