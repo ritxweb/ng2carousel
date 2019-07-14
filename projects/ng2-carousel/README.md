@@ -84,7 +84,23 @@ import { Component } from '@angular/core';
     </ng2carousel>
   </div>
   `,
-  styleUrls: ['./app.component.css']
+  styles:[`
+    .ng2carousel-element {
+      padding: 0;
+      width: 300px;
+      height: 300px;
+      background-color: crimson;
+      color: #fff;
+      font-size: 50px;
+      line-height: 300px;
+      text-align: center;
+    }
+
+    .ng2carousel-container {
+      width: 100%;
+      margin: auto;
+    }
+  `]
 })
 export class AppComponent {
   ng2carouselItems = [
@@ -106,15 +122,16 @@ export class AppComponent {
 ## Running the example in local env
 
 * `npm i`
+* `ng build ng2-carousel`
 * Run `ng serve` for a dev server and running the demo app. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Build the Ng2Carousel module
 
-Run `ng build Ng2Carousel` to build the module. The build artifacts will be stored in the `dist/ng2-carousel` directory.
+Run `ng build ng2-carousel` to build the module. The build artifacts will be stored in the `dist/ng2-carousel` directory.
 
 ## Running unit tests
 
-Run `ng test Ng2Carousel` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test ng2-carousel` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
 ## License
 

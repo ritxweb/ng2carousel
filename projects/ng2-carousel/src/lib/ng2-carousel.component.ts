@@ -41,6 +41,7 @@ export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, On
   @ContentChildren(Ng2CarouselItemDirective) items: QueryList<Ng2CarouselItemDirective>;
   @ViewChildren(Ng2CarouselItemElement, { read: ElementRef }) private itemsElements: QueryList<ElementRef>;
   @ViewChild('ng2carousel', { static: true }) private ng2carousel: ElementRef;
+  @ViewChild('ng2carouselCover', { static: true }) private ng2carouselCover: ElementRef;
   @Input() timing = '250ms ease-in';
   @Input() showControls = true;
   @Input() showNavigation = 'radio'; // radio, numbers, none
@@ -56,7 +57,7 @@ export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, On
   public currentSlide = 0;
   public currentSlideShown = 0;
   ng2carouselWrapperStyle = {};
-  ng2carouselControlsStyle = {};
+  //ng2carouselControlsStyle = {};
   public navigationIndexes: number[] = [];
   private intervalTransition;
   private scrollLimit = 0;
@@ -64,7 +65,7 @@ export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, On
   onResize(event?) {
     let carouselWidth = 0;
 
-    while ((window.innerWidth >= ((carouselWidth + this.itemWidth) - this.slidesMargin)) &&
+    while ((this.ng2carouselCover.nativeElement.offsetWidth >= ((carouselWidth + this.itemWidth) - this.slidesMargin)) &&
       (((carouselWidth + this.itemWidth) - this.slidesMargin) <= ((this.itemWidth * this.slidesN) - this.slidesMargin))) {
       carouselWidth = carouselWidth + this.itemWidth;
     }
@@ -72,12 +73,13 @@ export class Ng2CarouselComponent implements AfterViewInit, AfterContentInit, On
     if (this.slidesMargin) { carouselWidth = carouselWidth - this.slidesMargin; }
 
     this.ng2carouselWrapperStyle = {
-      width: carouselWidth + `px`
-    };
-    this.ng2carouselControlsStyle = {
       width: carouselWidth + `px`,
-      marginTop: `1em`
+      margin: 'auto'
     };
+    // this.ng2carouselControlsStyle = {
+    //   width: carouselWidth + `px`,
+    //   margin: `1em auto`
+    // };
   }
 
   goToSlide(indexSlider: number) {
