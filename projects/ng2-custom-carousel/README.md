@@ -45,6 +45,7 @@ List of features
  ```typescript
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { Ng2CustomCarouselModule } from 'ng2-custom-carousel';
@@ -55,6 +56,7 @@ import { Ng2CustomCarouselModule } from 'ng2-custom-carousel';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     Ng2CustomCarouselModule
   ],
   providers: [],
@@ -64,7 +66,7 @@ export class AppModule { }
 
  ```
 
- 2) Use the selector `(ng2carousel)` in your component.
+ 2) Use the selector `(ng2-custom-carousel)` in your component.
 
 ```typescript
 import { Component } from '@angular/core';

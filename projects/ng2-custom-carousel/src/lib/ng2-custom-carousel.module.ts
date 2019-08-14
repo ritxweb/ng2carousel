@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { Ng2CustomCarouselComponent, Ng2CustomCarouselItemElement } from './ng2-custom-carousel.component';
 import { Ng2CustomCarouselItemDirective } from './ng2-custom-carousel-item.directive';
@@ -14,7 +14,7 @@ import { Ng2CustomCarouselItemDirective } from './ng2-custom-carousel-item.direc
     Ng2CustomCarouselItemDirective
   ],
   imports: [
-    BrowserAnimationsModule,
+    CommonModule,
     FormsModule
   ],
   exports: [
