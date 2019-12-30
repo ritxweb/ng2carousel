@@ -1,6 +1,14 @@
 {
   "name": "ng2-custom-carousel",
-  "version": "0.0.18",
+  "version": "0.0.19",
+  "scripts": {
+    "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/ng2-custom-carousel/",
+    "copy:files": "cp --parents -p schematics/*/files/** ../../dist/ng2-custom-carousel/",
+    "copy:collection": "cp schematics/collection.json ../../dist/ng2-custom-carousel/schematics/collection.json",
+    "postbuild": "npm run copy:schemas && npm run copy:files && npm run copy:collection"
+  },
+  "schematics": "./schematics/collection.json",
   "description": "Carousel Component for Angular 2+. Easily customizable, with autoscroll, loop and navigation controls",
   "author": {
     "name": "Ricardo Villagra",
@@ -26,5 +34,8 @@
   "peerDependencies": {
     "@angular/common": "^8.1.1",
     "@angular/core": "^8.1.1"
+  },
+  "ng-update": {
+    "migrations": "./schematics/migration.json"
   }
 }
