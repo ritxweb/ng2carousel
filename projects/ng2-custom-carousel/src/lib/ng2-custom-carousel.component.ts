@@ -12,6 +12,7 @@ import {
   HostListener,
   OnDestroy
 } from '@angular/core';
+
 import { Ng2CustomCarouselItemDirective } from './ng2-custom-carousel-item.directive';
 import { animate, AnimationBuilder, AnimationFactory, AnimationPlayer, style } from '@angular/animations';
 
@@ -28,8 +29,7 @@ export class Ng2CustomCarouselItemElement {
 })
 export class Ng2CustomCarouselComponent implements AfterViewInit, AfterContentInit, OnDestroy {
 
-  constructor(private builder: AnimationBuilder) {
-  }
+  constructor(private builder: AnimationBuilder) { }
 
   get currentSlideString(): string {
     return this.currentSlideShown.toString();
@@ -38,10 +38,10 @@ export class Ng2CustomCarouselComponent implements AfterViewInit, AfterContentIn
   set currentSlideString(index: string) {
     this.goToSlide(+index + (this.loop ? 2 : 0));
   }
-  @ContentChildren(Ng2CustomCarouselItemDirective) items: QueryList<Ng2CustomCarouselItemDirective>;
-  @ViewChildren(Ng2CustomCarouselItemElement, { read: ElementRef }) private itemsElements: QueryList<ElementRef>;
-  @ViewChild('ng2CustomCarousel', { static: true }) private ng2CustomCarousel: ElementRef;
-  @ViewChild('ng2CustomCarouselCover', { static: true }) private ng2CustomCarouselCover: ElementRef;
+  @ContentChildren(Ng2CustomCarouselItemDirective) items!: QueryList<Ng2CustomCarouselItemDirective>;
+  @ViewChildren(Ng2CustomCarouselItemElement, { read: ElementRef }) private itemsElements!: QueryList<ElementRef>;
+  @ViewChild('ng2CustomCarousel', { static: true }) private ng2CustomCarousel!: ElementRef;
+  @ViewChild('ng2CustomCarouselCover', { static: true }) private ng2CustomCarouselCover!: ElementRef;
   @Input() timing = '250ms ease-in';
   @Input() showControls = true;
   @Input() showNavigation = 'radio'; // radio, numbers, none
@@ -50,18 +50,18 @@ export class Ng2CustomCarouselComponent implements AfterViewInit, AfterContentIn
   @Input() slidesN = 0;
   @Input() scrollDirection = 'left'; // left, right
   @Input() slidesMargin = 0;
-  private player: AnimationPlayer;
-  private playerRestart: AnimationPlayer;
-  private playerReend: AnimationPlayer;
-  private itemWidth: number;
+  private player!: AnimationPlayer;
+  private playerRestart!: AnimationPlayer;
+  private playerReend!: AnimationPlayer;
+  private itemWidth!: number;
   public currentSlide = 0;
   public currentSlideShown = 0;
   public ng2CustomCarouselWrapperStyle = {};
   public navigationIndexes: number[] = [];
-  private intervalTransition;
+  private intervalTransition!: any;
   private scrollLimit = 0;
   @HostListener('window:resize', ['$event'])
-  onResize(event?) {
+  onResize() {
     let carouselWidth = 0;
 
     while ((this.ng2CustomCarouselCover.nativeElement.offsetWidth >= ((carouselWidth + this.itemWidth) - this.slidesMargin)) &&

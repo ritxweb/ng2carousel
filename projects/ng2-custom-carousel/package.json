@@ -1,6 +1,6 @@
 {
   "name": "ng2-custom-carousel",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "scripts": {
     "build": "../../node_modules/.bin/tsc -p tsconfig.schematics.json",
     "copy:schemas": "cp --parents schematics/*/schema.json ../../dist/ng2-custom-carousel/",
@@ -32,13 +32,10 @@
     "javascript"
   ],
   "peerDependencies": {
-    "@angular/common": "^12.1.2",
-    "@angular/core": "^12.1.2"
-  },
-  "ng-update": {
-    "migrations": "./schematics/migration.json"
+    "@angular/common": "^12.1.0",
+    "@angular/core": "^12.1.0"
   },
   "dependencies": {
-    "tslib": "^2.0.0"
+    "tslib": "^2.2.0"
   }
 }

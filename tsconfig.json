@@ -1,33 +1,36 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "downlevelIteration": true,
     "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
-    "module": "esnext",
-    "moduleResolution": "node",
+    "downlevelIteration": true,
+    "paths": {
+      "ng2-custom-carousel": [
+        "dist/ng2-custom-carousel/ng2-custom-carousel",
+        "dist/ng2-custom-carousel"
+      ]
+    },
     "experimentalDecorators": true,
+    "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es2015",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
+    "target": "es2017",
+    "module": "es2020",
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "ng2-custom-carousel": [
-        "dist/ng2-custom-carousel"
-      ],
-      "ng2-custom-carousel/*": [
-        "dist/ng2-custom-carousel/*"
-      ],
-      "@angular/*": [
-        "./node_modules/@angular/*"
-      ]
-    }
+    ]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
   }
 }
