@@ -11,9 +11,7 @@ describe('Ng2CustomCarouselComponent', () => {
       declarations: [ Ng2CustomCarouselComponent ]
     })
     .compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(Ng2CustomCarouselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
